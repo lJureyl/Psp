@@ -13,9 +13,9 @@ void main() {
     printf("Mi nombre es Junior\n");
   }
   else{
-    pid_hijo = wait(NULL); // Almacena el valor pid del hijo
+    wait(NULL); // Almacena el valor pid del hijo
     printf("Mi pid es como padre es= %d \n" ,getpid());
-    printf("El pid de mi hijo es: %d \n", pid_hijo); //Esto muestra la pid de l hijo
+    printf("El pid de mi hijo es: %d \n", pid); //Esto muestra la pid de l hijo
   }
   exit(0);
   }
