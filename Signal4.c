@@ -11,6 +11,10 @@ void manejador( int numsenal )
  
 }
 
+void manejadorPadre(int numsenal){
+    printf("Padre recibe señal.. %d\n", numsenal);
+}
+
 int main()
 {
   int pid_hijo;  
@@ -24,13 +28,13 @@ int main()
      case 0:   //HIJO     	         
           signal(SIGUSR1, manejador); //Función manejadora de la señal
           pause();
-          printf("Mandando señal a  papa %i\n",getppid());
+          printf("Mandando señal a  papa %d \n",getppid());
           kill(getppid(), SIGUSR1);
           
           break;    
      default: 
           //PADRE envia 2 señales
-          signal(SIGUSR1, manejador);
+          signal(SIGUSR1, manejadorPadre);
           sleep(1);
           kill(pid_hijo, SIGUSR1);//ENVIA SEÑAL AL HIJO 
           sleep(1);
